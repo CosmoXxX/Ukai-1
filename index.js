@@ -3,13 +3,14 @@ const moment = require('moment');
 const meteo = require('weather-js');
 const client = new Discord.Client();
 
+
 client.on('ready', () => {
   console.log('Coucou');
 });
 
 const settings = {
     prefix: 'u.',
-    token: 'NTg5ODI1MzI1MjE5ODQwMDIy.XQ30nQ.ObhzMTrBms7d-vuk3PmyFd_A5L8'
+    token: 'NTg5ODI1MzI1MjE5ODQwMDIy.XQ4RfA.h8UDwi0WK-TfoWiLJIMhfAi6rss'
   }
   client.on('message', async message => {
     let command = message.content.toLowerCase().slice(settings.prefix.length).split(' ')[0];
@@ -174,9 +175,9 @@ if(command === "annonce") {
     let question = args.join(" ");
                           
     let ballembed = new Discord.RichEmbed()
+    .setThumbnail('https://cdn.discordapp.com/attachments/591936991965478912/591956533986983967/1024px-8-Ball_Pool.png')
+    .setTitle(':8ball: 8ball :8ball:')
     .setAuthor(message.author.username, message.author.avatarURL)
-    .setTitle(":8ball: 8ball")
-    .setThumbnail("http://www.transparentpng.com/cats/8-ball-pool-1461.html")
     .setColor("#00fff2")
     .addField("Question", question)
     .addField("Réponse", replies[result])
@@ -242,7 +243,7 @@ if (command === 'pf') {
     .setAuthor(`${message.author.username}`, message.author.avatarURL)
 
     .setColor("#00fff2")
-    .setDescription("``b!reverse [message] ``")
+    .setDescription("``u.reverse [message] ``")
     .setFooter("erreur", 'https://cdn.discordapp.com/attachments/575719847418396733/582180312306679808/476014391427334144.png')
     .setTimestamp()        
   if (args.length < 1) {
@@ -264,8 +265,8 @@ if (command === 'removerole') {
   .setColor("#00fff2")
   .setTitle(`Retirez un rôle`)
   .addField("Description:", "Retirer le rôle d'une personne", true)
-  .addField("Usage", "u.removerole [user] [role]", true)
-  .addField("Example", "u.removerole @TacosBurk#0000 Membre")
+  .addField("Usage", "b!removerole [user] [role]", true)
+  .addField("Example", "b!removerole @TacosBurk#0000 Membre")
 
 if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Pour cela, vous avez besoin de la premission `MANAGE_ROLES`");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
@@ -537,23 +538,23 @@ return  member.send(embed)
            message.channel.send(roleemebed);
        
        } 
-      if (command === 'help') {
-       let helpembed = new Discord.RichEmbed()
-       .addField('•__**MENU AIDE**__•', 'Mon préfix est ``u.``')
-       .setColor('#00fff2')
-       .addField(':information_source: ** INFORMATIONS **:', ' ``u.bot-info`` , ``u.serveur-info`` , ``u.rôle-info [rôle]``  , ``u.user-info [user]`` , ``u.ping`` ')
-       .addField(':tools: **UTILITAIRES** :', '``u.avatar [user]``, ``u.bvn [user]`` , ``u.google [recherche]`` , ``u.youtube [recherche]`` , ``u .invite`` , ``u.meteo [ville]`` , ``u.calcul [calcul]``')
-       .addField(':tada:  **FUN** :', '``u.8ball [questions]`` , ``u.pf [pile ou face]`` , ``u.reverse [mot]`` , ``u.meme``')
-       .addField(':rotating_light: **Modérations** :', '``u.ban [user] [raison]`` , ``u.kick [user] [raison]`` , ``u.warn [user] [raison]`` , ``u.mute [user] [raison]`` , ``u.purge [2-100]`` , ``u.unmute [user]`` , ``u.addrole [user] [role]`` , ``u.removerole [user] [role]``')
-       .addField('•**Autres**', '**•Créé par DraLow.#9014**•')
-       message.channel.send(helpembed);
-
+       if (command === 'help') {
+        let helpembed = new Discord.RichEmbed()
+        .addField('•__**MENU AIDE**__•', 'Mon préfix est ``u.``')
+        .setColor('#00fff2')
+        .addField(':information_source: ** INFORMATIONS **:', ' ``u.bot-info`` , ``u.serveur-info`` , ``u.rôle-info [rôle]``  , ``u.user-info [user]`` , ``u.ping`` ')
+        .addField(':tools: **UTILITAIRES** :', '``u.avatar [user]``, ``u.bvn [user]`` , ``u.google [recherche]`` , ``u.youtube [recherche]`` , ``u.invite`` , ``u.meteo [ville]`` , ``u.calcul [calcul]``')
+        .addField(':tada:  **FUN** :', '``u.8ball [questions]`` , ``u.pf [pile ou face]`` , ``u.reverse [mot]`` , ``u.meme`` , ``u.gay [user]``')
+        .addField(':rotating_light: **Modérations** :', '``u.ban [user] [raison]`` , ``u.kick [user] [raison]`` , ``u.warn [user] [raison]`` , ``u.mute [user] [raison]`` , ``u.purge [2-100]`` , ``u.unmute [user]`` , ``u.addrole [user] [role]`` , ``u.removerole [user] [role]``')
+        .addField('•**Autres**', '**•Créé par DraLow.#9014**•')
+        message.channel.send(helpembed);
+    } 
     if(command === 'invite') {
     let helpembed = new Discord.RichEmbed()
     .addField(" ℹ Invites", "-------------------")
     .setColor("#00fff2")
-    .addField("Invitation du bot", "https://discordapp.com/api/oauth2/authorize?client_id=589825325219840022&permissions=8&scope=bot")
-    .addField("Serveur du bot", "https://discord.gg/zjkWdnu")
+    .addField("Invitation du bot", "https://discordapp.com/api/oauth2/authorize?client_id=591486435949805568&permissions=8&scope=bot")
+    .addField("Serveur du bot", "https://discord.gg/mNhJ6Gy")
     .setFooter("DraloW.#9014");
 
     message.channel.send(helpembed);
@@ -619,19 +620,31 @@ if(command === 'meme'){
     }
  })
 }
-
-if(command ==='sondage'){
- let warnchannel = message.guild.channels.find(`name`, "announcements");
-  if(!warnchannel) return message.reply("Couldn't find named announcements. Please create channel if you havent done so already.");
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
-  message.guild.channels.find("name", "announcements").send(`Poll by ${message.author.username}:\n${args.join(" ")}\n`)
-    .then(function (message) {
-      message.react("✅")
-      message.react("❌")
-      
-    })
+if(command === 'gay'){
+const gayPerecent = Math.floor(Math.random() * 100)
+if(message.mentions.users.first()) {
+  const user = message.mentions.users.first()
+  const embed = new Discord.RichEmbed()
+  .setColor("#00fff2")
+  .setFooter(`${message.author.username} à demandé cette commande`)
+  if(gayPerecent > 50) {
+  embed.setDescription(`${user.username} est ${gayPerecent}% gay :rainbow:`)
+  } else {
+  embed.setDescription(`${user.username} est ${gayPerecent}% gay 👍`)
+  }
+    message.channel.send({embed});
+} else {
+  const embed = new Discord.RichEmbed()
+  .setColor("#00fff2")
+  .setFooter(`${message.author.username} à demandé cette commande`)
+  if(gayPerecent > 50) {
+  embed.setDescription(`${message.author.username} est ${gayPerecent}% gay :rainbow:`)
+  } else {
+  embed.setDescription(`${message.author.username} est ${gayPerecent}% gay 👍`)
+  }
+    message.channel.send({embed});
 }
-
+}
 
 });
 
